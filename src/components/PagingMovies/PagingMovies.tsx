@@ -12,11 +12,11 @@ type Movie = {
 }
 type Props = {
     movies: Movie[],
-    // itemsPerRow: number,
+    itemsPerRow: number,
     // itemsPerPage: number
 }
 
-function PagingMovies({ movies }: Props) {
+function PagingMovies({ movies, itemsPerRow }: Props) {
     const [currentPage, setCurrentPage] = useState(1);
     return (
         <div>
@@ -24,20 +24,21 @@ function PagingMovies({ movies }: Props) {
                 {
                     movies.map((ele, index) => {
                         return (
-                            <MovieCard
-                                key={index}
-                                id={ele.id}
-                                url={ele.url}
-                                name={ele.name}
-                                imdb='7.6'
-                                view='12' />
+                            <div key={index} style={{width:`${100/itemsPerRow}%`, minWidth:`${100/itemsPerRow}%`}}>
+                                <MovieCard
+                                    id={ele.id}
+                                    url={ele.url}
+                                    name={ele.name}
+                                    imdb='7.6'
+                                    view='12' />
+                            </div>
                         )
                     })
                 }
             </div>
 
             {/* Paging */}
-            <div style={{display:"flex", justifyContent:"flex-end", marginTop:"20px"}}>
+            <div style={{ display: "flex", justifyContent: "flex-end", marginTop: "20px" }}>
                 <Pagination classNames={{
                     item: "bg-black text-white ",
                     cursor: "bg-[#ac1a1a] text-white ",

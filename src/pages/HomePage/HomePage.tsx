@@ -72,7 +72,7 @@ function HomePage() {
         <div>
           <h2 className="heading">Continue watching</h2>
           <div>
-            <MovieSlider movies={content}/>
+            <MovieSlider movies={content} itemsPerScreen={5}/>
           </div>
         </div>
 
@@ -82,7 +82,7 @@ function HomePage() {
         <div>
           <h2 className="heading">Recommended</h2>
           <div>
-            <MovieSlider movies={content}/>
+            <MovieSlider movies={content} itemsPerScreen={5}/>
           </div>
         </div>
 
@@ -92,7 +92,7 @@ function HomePage() {
         <div>
           <h2 className="heading">New movies</h2>
           <div>
-            <PagingMovies movies={content}/>
+            <PagingMovies movies={content} itemsPerRow={5}/>
           </div>
         </div>
 

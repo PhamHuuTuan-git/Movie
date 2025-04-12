@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import { sidebarSelectorMode } from "@/redux-toolkit/selector";
 import { Divider } from "@heroui/react";
 import MenuSidebar from "../MenuSideBar/MenuSidebar";
+
 function SideBar() {
   const sidebarMode = useSelector(sidebarSelectorMode);
   return (

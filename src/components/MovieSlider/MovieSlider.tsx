@@ -8,8 +8,9 @@ type Movie = {
 
 type Props = {
     movies: Movie[];
+    itemsPerScreen: number
 };
-function MovieSlider({ movies }: Props) {
+function MovieSlider({ movies, itemsPerScreen }: Props) {
     return (
         <div>
             <div className="list--cards">
@@ -17,13 +18,16 @@ function MovieSlider({ movies }: Props) {
                 {
                     movies.map((ele, index) => {
                         return (
-                            <MovieCard
-                                key={index}
-                                id={ele.id}
-                                url={ele.url}
-                                name={ele.name}
-                                imdb='7.6'
-                                view='12' />
+                            <div key={index} style={{width: `${100/itemsPerScreen}%`, minWidth:`${100/itemsPerScreen}%`}}>
+                                <MovieCard
+                                    
+                                    id={ele.id}
+                                    url={ele.url}
+                                    name={ele.name}
+                                    imdb='7.6'
+                                    view='12' />
+                            </div>
+
                         )
                     })
                 }
