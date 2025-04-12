@@ -1,25 +1,34 @@
-import React from 'react'
+import "./style.scss"
+import MovieCard from '../MovieCard/MovieCard';
 type Movie = {
     name: string;
     id: string;
     url: string;
-  };
-  
+};
+
 type Props = {
     movies: Movie[];
-  };
+};
 function MovieSlider({ movies }: Props) {
     return (
         <div>
-            {
-                movies.map(() => {
-                    return(
-                        <div>
+            <div className="list--cards">
 
-                        </div>
-                    )
-                })
-            }
+                {
+                    movies.map((ele, index) => {
+                        return (
+                            <MovieCard
+                                key={index}
+                                id={ele.id}
+                                url={ele.url}
+                                name={ele.name}
+                                imdb='7.6'
+                                view='12' />
+                        )
+                    })
+                }
+            </div>
+
         </div>
     )
 }

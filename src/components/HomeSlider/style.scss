@@ -54,15 +54,11 @@
     display: flex;
     transition: all ease-in 0.3s;
 }
-:root {
-    --black: #211E32;
-    --dark: #2A2F42;
-    --green: #5AFE72;
-    --white: #fff;
-    --purple: #9a3bba;
-    --danger: #fe4e56;
-    --yellow: #fbff22;
-}
+
+    // --purple: #9a3bba;
+    // --danger: #fe4e56;
+    
+
 
 @property --rotate{
     syntax: "<angle>";
@@ -92,7 +88,7 @@
     height: 108%;
     content: '';
     background-image:
-        linear-gradient(var(--rotate), #9a3bba, #fe4e56);
+        linear-gradient(var(--rotate), #fc545d, #3e3e3e);
     border-radius: 12px;
     z-index: -1;
     left: -2%;

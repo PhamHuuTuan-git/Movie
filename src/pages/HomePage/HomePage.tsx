@@ -2,7 +2,8 @@
 import "./style.scss"
 import HomeSlider from '@/components/HomeSlider/HomeSlider'
 import MovieSlider from "@/components/MovieSlider/MovieSlider"
-import React from 'react'
+import PagingMovies from "@/components/PagingMovies/PagingMovies"
+import { Divider } from "@heroui/react"
 const content = [
   {
       id: "1",
@@ -42,19 +43,19 @@ const content = [
   },
   {
       id: "7",
-      url: "https://i.pinimg.com/736x/6f/b9/ae/6fb9ae7a0ae4e30cdfb3bebbd31ad8f8.jpg",
+      url: "https://upload.wikimedia.org/wikipedia/vi/b/b4/Poster_phim_7_thi_th%E1%BB%83.jpg",
       name: "Bộ phim duyệt nhất"
 
   },
   {
       id: "8",
-      url: "https://i.pinimg.com/736x/6f/b9/ae/6fb9ae7a0ae4e30cdfb3bebbd31ad8f8.jpg",
+      url: "https://youthvietnam.vn/wp-content/uploads/2021/06/Poster-phim-quang-cao-co-hieu-qua-khong.jpg",
       name: "Bộ phim duyệt nhất"
 
   },
   {
       id: "9",
-      url: "https://i.pinimg.com/736x/6f/b9/ae/6fb9ae7a0ae4e30cdfb3bebbd31ad8f8.jpg",
+      url: "https://i.pinimg.com/736x/ec/9e/5e/ec9e5e38d21ff3cef93ae1b90275e6bc.jpg",
       name: "Bộ phim duyệt nhất"
 
   },
@@ -72,6 +73,26 @@ function HomePage() {
           <h2 className="heading">Continue watching</h2>
           <div>
             <MovieSlider movies={content}/>
+          </div>
+        </div>
+
+        <div style={{marginTop:"48px", marginBottom:"48px", padding: "0 12px"}}><Divider  /></div>
+
+        {/* recommend movie */}
+        <div>
+          <h2 className="heading">Recommended</h2>
+          <div>
+            <MovieSlider movies={content}/>
+          </div>
+        </div>
+
+        <div style={{marginTop:"48px", marginBottom:"48px", padding: "0 12px"}}><Divider  /></div>
+
+        {/* New movies */}
+        <div>
+          <h2 className="heading">New movies</h2>
+          <div>
+            <PagingMovies movies={content}/>
           </div>
         </div>
 
