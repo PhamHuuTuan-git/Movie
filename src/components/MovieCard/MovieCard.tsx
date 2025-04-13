@@ -1,14 +1,22 @@
+"use client"
 import "./style.scss";
 import EyeSolidIcon from "../icons/EyeSolidIcon";
 import { Button } from "@heroui/react";
+import { useRouter } from "next/navigation"
+import routing from "@/utils/routing";
 type Props = {
     id: string,
     url: string,
+    slug: string
     name: string,
     imdb: string,
     view: string
 }
 function MovieCard(props: Props) {
+    const router = useRouter();
+    const handleDirect = () => {
+        router.push(`${routing.movies}/${props.slug}`)
+    }
     return (
         <div className="card--container">
             <div className="card-content--container">
@@ -30,7 +38,7 @@ function MovieCard(props: Props) {
                             <p className='text-white'>7.2</p>
                         </div>
                     </div>
-                    <Button className="card-detail--button">Detail</Button>
+                    <Button onClick={handleDirect} className="card-detail--button">Detail</Button>
                 </div>
 
             </div>

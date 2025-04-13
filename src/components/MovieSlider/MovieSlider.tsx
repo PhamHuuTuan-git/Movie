@@ -20,7 +20,7 @@ function MovieSlider({ movies, itemsPerScreen }: Props) {
                         return (
                             <div key={index} style={{width: `${100/itemsPerScreen}%`, minWidth:`${100/itemsPerScreen}%`}}>
                                 <MovieCard
-                                    
+                                    slug="heo-an-toi"
                                     id={ele.id}
                                     url={ele.url}
                                     name={ele.name}

@@ -3,6 +3,8 @@ import MovieCard from "../MovieCard/MovieCard";
 import "./style.scss";
 import { Pagination } from "@heroui/react";
 import { useState } from "react";
+
+
 type Movie = {
     id: string,
     url: string,
@@ -29,6 +31,7 @@ function PagingMovies({ movies, itemsPerRow }: Props) {
                                     id={ele.id}
                                     url={ele.url}
                                     name={ele.name}
+                                    slug="heo-an-toi"
                                     imdb='7.6'
                                     view='12' />
                             </div>
