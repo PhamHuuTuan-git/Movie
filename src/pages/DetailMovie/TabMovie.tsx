@@ -1,8 +1,14 @@
 import PlayIcon from "@/components/icons/PlayIcon";
 import "./style.scss";
 import { Tabs, Tab, Card, CardBody } from "@heroui/react";
-
+import { useRouter } from "next/navigation"
+import { usePathname } from "next/navigation";
 function TabMovie() {
+    const pathname = usePathname();
+    const router = useRouter();
+    const redirectWatching = (slug: string) => {
+        router.push(`${pathname}/watch/${slug}`)
+    }
     return (
         <>
             <Tabs className="" key="light" variant="light" aria-label="Options">
@@ -23,7 +29,7 @@ function TabMovie() {
                                 {
                                     [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((ele, index) => {
                                         return (
-                                            <div key={index} style={{
+                                            <div onClick={() => redirectWatching(`tap-${ele}`)} key={index} style={{
                                                 backgroundColor: "#282b3a", minWidth: "100px", display: "flex", justifyContent: "center", alignItems: "center",
                                                 padding: "20px 0", marginRight: "10px", marginTop: "10px", borderRadius: "10px", cursor: "pointer"
                                             }}>

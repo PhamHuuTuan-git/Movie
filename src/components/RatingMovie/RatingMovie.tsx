@@ -1,7 +1,11 @@
+"use client";
 import { Avatar, Chip } from '@heroui/react'
 import "./style.scss";
+import RatingModal from '../RatingModal/RatingModal';
+import { useState } from 'react';
 
 function UserTag() {
+    
     return (
         <div style={{ display: "flex", gap: 12 }}>
             <div>
@@ -24,11 +28,17 @@ function UserTag() {
 }
 
 function RatingMovie() {
+    const [isOpenModal, setIsOpenModal] = useState(false);
+    const openRatingModal = function () {
+        setIsOpenModal(true);
+    }
     return (
         <div>
             <div style={{display:"flex", alignItems:"center", justifyContent:"space-between"}}>
                 <h2 className='text-white text-[1.4rem] font-bold'>Đánh giá</h2>
-                <p style={{color:"#fff", fontSize:"1rem", fontWeight:"bold", cursor:"pointer", textDecoration:"underline"}}>Viết đánh giá</p>
+                <p
+                    onClick={openRatingModal} 
+                style={{color:"#fff", fontSize:"1rem", fontWeight:"bold", cursor:"pointer", textDecoration:"underline"}}>Viết đánh giá</p>
             </div>
             <div className='list-rating-user--container'>
                 <UserTag />
@@ -42,6 +52,8 @@ function RatingMovie() {
                 <UserTag />
                 <UserTag />
             </div>
+
+            <RatingModal idMovie='123' nameMovie='ahihi' isOpen={isOpenModal} openChange={setIsOpenModal}/>
         </div>
     )
 }

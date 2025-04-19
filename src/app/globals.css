@@ -7,7 +7,7 @@
   --foreground: #000;
   --primary-color: #0f0f11;
   --core-color: #ac1a1a;
-  --header-height: 100px;
+  --header-height: 80px;
   --sidebar-width-on: 250px;
   --sidbar-width-off: 110px;
 }

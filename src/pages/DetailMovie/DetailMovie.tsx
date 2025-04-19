@@ -2,12 +2,12 @@
 import { Button } from "@heroui/react";
 import "./style.scss";
 import PlayIcon from "@/components/icons/PlayIcon";
-import LoveOutlineIcon from "@/components/icons/LoveOutlineIcon";
 import LoveFillIcon from "@/components/icons/LoveFillIcon";
 import { useState } from "react";
 import TabMovie from "./TabMovie";
 import RatingMovie from "@/components/RatingMovie/RatingMovie";
-
+import { useRouter } from "next/navigation"
+import { usePathname } from "next/navigation";
 type Props = {
     slug: string,
     id: string
@@ -15,6 +15,12 @@ type Props = {
 
 function DetailMovie({ slug, id }: Props) {
     const [isLike, setIslike] = useState(false);
+    const pathname = usePathname();
+    const router = useRouter();
+    // console.log("path now: ", pathname)
+    const redirectWatching = () => {
+        router.push(`${pathname}/watch/tap-1`)
+    }
     return (
         <div className="detail--container">
             <div className="poster--container">
@@ -85,7 +91,7 @@ function DetailMovie({ slug, id }: Props) {
                 <div className="detail-movie-content-right">
                     {/*  */}
                     <div className="flex gap-8">
-                        <Button className="watch-now--button"><PlayIcon /> Xem ngay</Button>
+                        <Button onClick={redirectWatching} className="watch-now--button"><PlayIcon /> Xem ngay</Button>
                         <div style={{display:"flex", flexDirection:"column", alignItems:"center"}}>
                             <LoveFillIcon onClick={() => setIslike(!isLike)} className={`${isLike ? "movie-like" : "movie-liked"} size-6 cursor-pointer`}/>
                             <p className="select-none text-white">Yêu thích</p>
